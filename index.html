@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event listener</title>
+    <style>
+        #c{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            width: 80%;
+            height: 100vh;
+            gap: 20px;
+            margin: auto;
+        }
+        #c>div{
+            background-color: red;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <input id="input" type="file">
+    <div id="c">
+        <div>0</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>  
+    </div> 
+    <button>
+        click me
+    </button>
+    <img alt="">
+
+
+<p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)"></p>
+<p><label for="file" >Upload Image</label></p>
+<p><img id="output" width="200" /></p>
+</body>
+</html>
+<script>
+    
+    let dom = document.querySelectorAll('#c>div')
+    let array = [0,1,2,3,4]
+    call(dom)
+    function call(dom){
+        dom.forEach((el,i) => {     
+        el.addEventListener('click',(e)=>{  
+            e.target.remove()  
+            dom = document.querySelectorAll('#c>div') 
+            array.splice(i,1)            
+            console.log('i',i,'araay',array,'dom',dom)
+            
+           call(dom)
+           e.stopImmediatePropagation();
+           
+        })
+    });
+    } 
+    
+    
+    // document.querySelector('button').addEventListener('click',ab)
+    // document.querySelector('button').addEventListener('click',ab)
+    // function ab(){
+    //     let img = document.querySelector('img')
+    //     var value = document.querySelector('input')
+    //     let save = value
+    //     // img.setAttribute('src',save)
+    //     console.log(save,8)
+    // }
+//     const fileInput = document.getElementById('input');
+//     fileInput.onchange = () => {
+//   const selectedFile = fileInput.files[0];
+//   let img = document.querySelector('img')
+//   img.setAttribute('src',selectedFile)
+//   console.log(selectedFile);
+// }
+
+
+
+
+function loadFile (event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+
+</script>
