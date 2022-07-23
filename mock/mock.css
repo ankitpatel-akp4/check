@@ -211,15 +211,13 @@
     border-radius: 10px 10px 0px 0px;
 }
 #notans{
-    
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 100% 100%, 0% 100%, 0% 50%);
     background-color: rgb(228, 38, 38);
     line-height: 28px;
-    border-radius: 0px 0px 10px 10px ;
 }
 #marked{
     
     background-color: indigo;
-    line-height: 28px;
     border-radius: 15px;
     padding: 4px 7px;
 }
@@ -230,14 +228,16 @@
     line-height: 28px;
     color: black;
     border-radius: 5px;
-    padding: 4px 12px;
+    padding: 3px 10px;
 }
 
 #ansRev{
+    
     background-color: indigo;
     line-height: 28px;
-    border-radius: 15px 25px 15px 15px;
-    padding: 3px 8px;
+    border-radius: 50%;
+    padding: 2px 8px;
+    
 }
 #legend>div{
     display: flex;
@@ -285,7 +285,19 @@
 
 }
 
+.option{
+    display: flex;
+    
+}
+.option>input{
+    margin-bottom: 15px;
+    margin-right: 20px;
+}
 
+#question>div:first-child{
+    user-select: none;    
+}
 
-
-
+#ans{
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 100% 100%, 0% 100%, 0% 50%);
+}
