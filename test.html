@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+        
+        #d{
+            width: 200px;
+            height: 200px;
+            border: 1px red solid;
+        }
+        /* div>p{
+            
+            writing-mode: sideways-lr;
+            
+        } */
+        #toShow{
+            display: none;
+        }
+        #toClick{
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        #flow{
+            width: auto;
+            border: 1px forestgreen solid;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(6,1fr);
+            gap: 20px;
+            
+            
+            
+
+        }
+        #flow::-webkit-scrollbar {
+    display: none;
+}
+
+        #flow>div{
+            width: 500px;
+            height: 200px;
+            border: 1px red dotted;
+
+        }
+        #nav{
+            width:100%;
+            height: 100px;
+            border: 4px red solid;
+            position: fixed;
+            top: 0px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="nav"></div>
+    <img src="#" alt="">
+    <div id="flow">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+
+    </div>
+    <div id="d">
+        <p>Ankit</p>
+        <p>Patel</p>
+        <p>kumar</p>
+        <div id="toShow">
+            <p>Priya</p> 
+            <p>Lovelin</p>
+        </div>
+        <p id="toClick">+more</p>
+        <p>ankit</p>
+        
+
+    </div>
+    <!-- <p>ankit</p> -->
+    
+</body>
+</html>
+
+<script>
+//     let a = document.getElementById('toClick')
+//     a.addEventListener('click', (e)=>{
+//         document.getElementById('toShow').style.display = 'block'
+//         a.remove()
+//     })
+
+// window.addEventListener('scroll',()=>{
+//     console.log(window.scrollY, window.scrollX)
+// })
+
+const all = document.querySelector('body').childNodes;
+console.log(all);
+console.log(all[all.length-2].hasChildNodes(),all[all.length-2].childNodes)
+let leaves = []
+all.forEach((el,i) => {
+    if(!el.hasChildNodes()) {
+        leaves.push(el)
+    }else if(el.childNodes);    
+})
+
+console.log(leaves)
+// (function () {
+//   var nodes = [];
+//   for (node of document.body.childNodes) {
+//     if (node.nodeType === 3) {
+//       nodes.push(node.parentNode);
+//     };
+//   };
+//   console.log('nodes',nodes);
+// })();
+ 
+const nav = document.querySelector('#nav');
+    let start  = 0
+    
+    window.addEventListener('scroll',()=>{
+        let scroll = window.scrollY
+        console.log(scroll);
+        
+        if(scroll>start){
+            start=scroll
+            nav.style.display = 'none'
+        }else{
+            start=scroll
+            nav.style.display = 'block'
+        }
+    })
+
+</script>
